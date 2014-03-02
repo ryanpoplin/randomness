@@ -1,0 +1,108 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>autesta</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="main"></div>
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <script type="text/template" id="index-template">
+            <div id="index-core-template">
+                <div id="ttb">
+                    <p class="core-p">First let’s look at how Exceptional Communication works.</p>
+                    <p>Remember, you may skip this tutorial at any time by using the skip button on the top right corner.</p>
+                    <p>Press the button on the screen to get started.</p>
+                    <div id="skip">Skip Tutorial</div>
+                </div>
+            </div>
+        </script>
+
+        <!--<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>-->
+
+        <!-- build:js scripts/main.js -->
+        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <!-- endbuild -->
+        
+        <script>
+
+            (function() {
+
+                var App;
+
+                App = {
+                    Models: {},
+                    Collections: {},
+                    Views: {},
+                    Router: null
+                };
+
+                App.Views.IndexView = Backbone.View.extend({
+                    initialize: function() {
+                        console.log('IndexView Init');
+                    },
+                    el: '#main',
+                    template: _.template($('#index-template').html()),
+                    render: function() {
+                        this.$el.html(this.template());
+                        return this;
+                    }
+                });
+                    
+                App.Router = Backbone.Router.extend({
+                    initialize: function() {
+                        console.log('Router Init...');
+                    },
+                    routes: {
+                        '': 'index'
+                    },
+                    index: function() {
+                        var indexView;
+                        indexView = new App.Views.IndexView();
+                        indexView.render();
+                    }
+                });
+
+                new App.Router;
+
+                Backbone.history.start();
+
+            }());
+
+        </script>
+
+</body>
+</html>
