@@ -1,11 +1,21 @@
 /*global describe, it */
 'use strict';
 (function () {
-    describe('Give it some context', function () {
-        describe('maybe a bit more context here', function () {
-            it('should run here few assertions', function () {
-
+    describe('Testing Setup...', function () {
+        describe('Chai.js', function () {
+            it('should be equal using "expect"', function () {
+            		expect(hello()).to.equal('Hello World...');
             });
+        });
+        describe('Sinon.js', function() {
+        	it('should report spy called', function() {
+        		var helloSpy;
+        		helloSpy = sinon.spy(window, 'hello');
+        		expect(helloSpy.called).to.be.false;
+        		hello();
+        		expect(helloSpy.called).to.be.true;
+        		hello.restore();
+        	});
         });
     });
 })();

@@ -20,6 +20,8 @@ I have a lot of opinions, and I will not be going over them in this guide. I wil
 
 What do I need to know to really learn something from this guide?
 
+// Config this...
+
 I assume you're a web developer with a basic understanding of the following technologies: Git and GitHub, HTML, CSS, JavaScript, and how to use your terminal. If you don't understand those technologies, get to work and this guide is a great next step for you!
 
 What makes this guide worth my time?
