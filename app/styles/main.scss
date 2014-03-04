@@ -2,7 +2,9 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
-body {
+
+
+/*body {
     * {
         margin: 0;
         padding: 0;
@@ -75,11 +77,19 @@ body {
                 cursor: pointer;
                 border-radius: 4px;
                 display: inline-block;
-                height: 170px;
-                width: 170px;
                 box-shadow: 0 1px 1px #a2a2a2;
                 margin-top: 5px;
                 margin-bottom: 5px;
+                height: 170px;
+                width: 170px;
+                @media (max-width: 768px) {
+                    height: 176px;
+                    width: 176px;
+                }
+                @media (max-width: 767px) {
+                    height: 170px;
+                    width: 170px;
+                }
                 p {
                     padding-top: 30px;
                     display: inline-block;
@@ -91,4 +101,4 @@ body {
         padding: 40px 0 40px 0;
         box-shadow: 0 1px 1px #e8e8e8;
     }
-}
+}*/

@@ -16,5 +16,10 @@
         		hello.restore();
         	});
         });
+        describe('Dependencies...', function() {
+        	it('should prove jQuery, Underscore, Backbone, and Marionette are available...', function() {
+        		
+        	});
+        });
     });
 })();
