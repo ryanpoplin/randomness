@@ -10,10 +10,12 @@
     <div id="mocha"></div>
     <script src="lib/mocha/mocha.js"></script>
     <script>mocha.setup('bdd');</script>
+    <script>mocha.setup('tdd');</script>
     <script>mocha.bail(false);</script>
     <!-- assertion framework -->
     <script src="lib/chai.js"></script>
     <script>var expect = chai.expect;</script>
+    <script>var assert = chai.assert;</script>
     <script src="lib/sinon/lib/sinon.js"></script>
     <script src="lib/sinon/lib/sinon/spy.js"></script>
     <script src="lib/sinon/lib/sinon/call.js"></script>
@@ -32,6 +34,7 @@
     <script src="../app/bower_components/backbone.marionette/lib/backbone.marionette.js"></script>
     <script src="../app/bower_components/backbone.localStorage/backbone.localStorage.js"></script>
     <script src="../app/bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../app/bower_components/showdown/compressed/showdown.js"></script>
     <!-- include spec files here... -->
     <script src="../app/scripts/app/app.js"></script>
     <!-- Starting tests... -->
@@ -42,10 +45,13 @@
             };
         }());
     </script>
-    <script src="spec/test.js"></script>
-    <script src="spec/time.testing.js"></script>
-    <script src="spec/fails.js"></script>
+    <script src="spec/test.suite.spec.js"></script>
+    <!--<script src="spec/time.testing.js"></script>-->
+    <!--<script src="spec/fails.js"></script>-->
+    <!--<script src="spec/bdd.spec.js"></script>-->
+    <!--<script src="spec/tdd.spec.js"></script>-->
     <script src="spec/namespace.spec.js"></script>
-    <script src="spec/note.model.spec.js"></script>
+    <script src="spec/quest.model.spec.js"></script>
+    <script src="spec/quests.collection.spec.js"></script>
 </body>
 </html>

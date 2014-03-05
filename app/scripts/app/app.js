@@ -4,6 +4,9 @@
 
     var App, app;
 
+    // Do custom configs for:...
+    // localStorage, Parse, and an Express RESTful API.
+
     App = App || {};
     App.Config || (App.Config = {});
     App.Models || (App.Models = {});
@@ -13,14 +16,36 @@
     App.Templates || (App.Templates = {});
     app = app || {};
 
-    App.Models.Note = Backbone.Model.extend({
+    // Real Storage...
+    App.Config = _.extend(App.Config, {
+        // Storage...
+        storeName: 'quests'
+    });
+
+    // Test Storage...
+    App.Config = _.extend(App.Config, {
+        storeName: 'questsTest'
+    });
+
+    App.Models.Quest = Backbone.Model.extend({
+        /*initialize: function() {
+            console.log('Quest Model Init...');
+        },*/
         defaults: function() {
             return {
                 title: '',
-                text: 'Edit this note...',
+                text: 'Edit this quest...',
                 createdAt: new Date()
             };
         }
+    });
+
+    App.Collections.Quests = Backbone.Collection.extend({
+        /*initialize: function() {
+            console.log('Quest Collection Init...');
+        },*/
+        model: App.Models.Quest,
+        localStorage: new Backbone.LocalStorage(App.Config.storeName)
     });
 	
 	/*var App, AppRegion, indexView, NameSpace, region;
