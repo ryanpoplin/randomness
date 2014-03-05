@@ -1,7 +1,5 @@
 // (function() {
 
-    // Namespace...
-
     var App, app;
 
     // Do custom configs for:...
@@ -46,6 +44,25 @@
         },*/
         model: App.Models.Quest,
         localStorage: new Backbone.LocalStorage(App.Config.storeName)
+    });
+
+    App.Templates['template-quest-view'] = "<div class=\"well well-small\">" + " <h2 id=\"pane-title\"><%= title %></h2>" + "</div>" + "<div id=\"pane-text\"><%= text %></div>";
+
+    App.Views.QuestView = Backbone.View.extend({
+        template: _.template(App.Templates['template-quest-view']),
+        converter: new Showdown.converter(),
+        initialize: function() {
+            this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.model, 'destroy', this.remove);
+            this.render();
+        },
+        render: function() {
+            this.$el.html(this.template({
+                title: this.model.get('title'),
+                text: this.converter.makeHtml(this.model.get('text'))
+            }));
+            return this;
+        }
     });
 	
 	/*var App, AppRegion, indexView, NameSpace, region;
