@@ -38,8 +38,7 @@
 				this.quests.reset();
 			});
 			it('has a single quest...', function(done) {
-				var quests, quest;
-				quests = this.quests, quest;
+				var quests = this.quests, quest;
 				quests.once('reset', function() {
 					expect(quests).to.have.length(1);
 					quest = quests.at(0);
@@ -51,8 +50,7 @@
 				quests.fetch({reset:true});
 			});
 			it('can delete a quest...', function(done) {
-				var quests, quest;
-				quests = this.quests, quest;
+				var quests = this.quests, quest;
 				quests.once('remove', function() {
 					expect(quests).to.have.length(0);
 					done();

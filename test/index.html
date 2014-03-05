@@ -8,9 +8,8 @@
 </head>
 <body>
     <div id="mocha"></div>
+    <!-- Add advanced fixture tech... -->
     <!-- Test Fixtures... -->
-    <div id="fixtures" style="display: none; visibility: hidden;">
-    </div> 
     <script src="lib/mocha/mocha.js"></script>
     <script>mocha.setup('bdd');</script>
     <script>mocha.setup('tdd');</script>
@@ -19,6 +18,7 @@
     <script src="lib/chai.js"></script>
     <script>var expect = chai.expect;</script>
     <script>var assert = chai.assert;</script>
+    <script src="lib/sinon-chai/lib/sinon-chai.js"></script>
     <script src="lib/sinon/lib/sinon.js"></script>
     <script src="lib/sinon/lib/sinon/spy.js"></script>
     <script src="lib/sinon/lib/sinon/call.js"></script>
@@ -56,5 +56,8 @@
     <script src="spec/namespace.spec.js"></script>
     <script src="spec/quest.model.spec.js"></script>
     <script src="spec/quests.collection.spec.js"></script>
+    <script src="spec/quest.view.spec.js"></script>
+    <div id="fixtures" style="display: none; visibility: hidden;">
+    </div> 
 </body>
 </html>
